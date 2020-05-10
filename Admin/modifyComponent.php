@@ -78,9 +78,9 @@
 	  <a href="reportGenaration.php"><button class="tablinks">Report Generation</button></a>
 	  <a href="viewemployees.php"><button class="tablinks">Employee Details</button></a>
 	  <a href="Logout.php"><button class="tablinks">Log Out</button></a>
-	</div>
 	
-	<div class="requestContainer" style="background-color:#696969;height:410px;margin-top:-20px">
+	
+	<div class="requestContainer" style="background-color:#696969;margin-top:-385px;height:410px;width:1075px;margin-left:190px;overflow-y: auto;">
 		<?php
 		    session_start();
 			$servername="localhost";
@@ -140,7 +140,10 @@
 						$sqlQuery="SELECT Equipment_ID, Equipment_Name from components where Equipment_Description='{$_POST["componentName"]}' ORDER BY Equipment_ID ASC";
 						$result2=mysqli_query($conn, $sqlQuery);
 						echo "<center><table>";
-						echo "<tr><th>Equipment ID</th><th>Equipment Description</th><th>Equipment Model</th><th>Modify</th></tr>";
+						echo "<tr><th style='background-color:skyblue'>Equipment ID</th>
+						<th style='background-color:skyblue'>Equipment Description</th>
+						<th style='background-color:skyblue'>Equipment Model</th>
+						<th style='background-color:skyblue'>Modify</th></tr>";
 						while ($row2 = mysqli_fetch_array($result2)) 
 					    {
 							echo "<tr>";
@@ -148,12 +151,14 @@
 							echo "<td>".$_POST["componentName"]."</td>";
 							echo "<td>".$row2[1]."</td>";
 							echo "<td>";
-							echo "<center><button name='Update' value=".$row2[0]." style='width:80px;background-color:black;'>Update</button>";
-							echo "<button name='Delete' value=".$row2[0]." style='width:80px;background-color:black;'>Delete</button></center>";
+							echo "<center><button name='Update' value=".$row2[0]." style='text-align:center;height:5px;color:white;width:80px;background-color:skyblue;'>Update</button>";
+							echo "<br>";
+							echo "<button name='Delete' value=".$row2[0]." style='text-align:center;height:5px;color:white;width:80px;background-color:skyblue;'>Delete</button></center>";
 							echo "</td></form>";
 							echo "</tr>";
 						}
 						echo "</table></center>";
+						echo "<br><br>";
 					}
 				}
 			}
@@ -194,7 +199,7 @@
 				$sql2="DELETE FROM Status WHERE EquipmentID='{$componentID}'";
 				$sql3="DELETE FROM availability WHERE Equipment_ID='{$componentID}'";
 				$sql4="DELETE FROM components WHERE Equipment_ID='{$componentID}'";
-				$sql5="INSERT INTO log(RegNo,StudentName,EquipmentID,EquipmentDescription,EquipmentName,Date,Time,Status) VALUES ('".$AdminID."', '".$AdminName."', '".$componentID."', '".$ComponentDesc."', '".$ComponentName."', '".$Date."', '".$Time."', '".$Status."')";	
+				$sql5="INSERT INTO log(EmpID,EmployeeName,EquipmentID,EquipmentDescription,EquipmentName,Date,Time,Status) VALUES ('".$AdminID."', '".$AdminName."', '".$componentID."', '".$ComponentDesc."', '".$ComponentName."', '".$Date."', '".$Time."', '".$Status."')";	
 
 				if(mysqli_query($conn,$sql2))
 				{
@@ -229,10 +234,11 @@
 			mysqli_close($conn);
 		  }
 		?>
-	</div>
+
     <center><span style="color:red"><?php echo $message;?></span></center>
+	</div></div>
 	
-     <div style="margin-left:-50px;background-color:black;height:113px;margin-top:0px;color:orange;text-align:center;">
+     <div style="margin-left:-50px;background-color:black;height:113px;margin-top:400px;color:orange;text-align:center;">
 	     <br>
 		<p >Gateway Software Solutions, Coimbatore</p>
 	</div>

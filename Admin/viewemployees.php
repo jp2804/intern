@@ -38,11 +38,11 @@
 	  <a href="addComponent.php"><button class="tablinks">Add Equipment</button></a>
 	  <a href="modifyComponent.php"><button class="tablinks">Modify Equipment</button></a>
       <a href="reportGenaration.php"><button class="tablinks">Report Generation</button></a>	 
-	 <a href="viewemployees.php"><button class="tablinks" style="background-color:#ccc">Employees Details</button></a>
+	 <a href="viewemployees.php"><button class="tablinks" style="background-color:#ccc">Employee Details</button></a>
 	  <a href="Logout.php"><button class="tablinks">Log Out</button></a>
-	</div>
 	
-	<div class="requestContainer" style="background-color:#696969;margin-top:-20px;height:410px;">
+	
+	<div class="requestContainer" style="background-color:#696969;margin-top:-385px;height:410px;width:1075px;margin-left:190px;overflow-y: auto;">
 		<?php
 		    session_start();
 			$servername="localhost";
@@ -108,18 +108,19 @@
 			     }
 				 echo "<center><table>";
 				  echo "<tr><th style = 'background-color:skyblue'>Employee Name</th><td>".$name."</td><tr>";
-				  echo "<tr><th style = 'background-color:skyblue'>Employee Register Number</th><td>".$selectedRegNo."</td><tr>";
+				  echo "<tr><th style = 'background-color:skyblue'>Employee ID</th><td>".$selectedRegNo."</td><tr>";
 				  echo "<tr><th style = 'background-color:skyblue'>Employee Gender</th><td>".$gender."</td><tr>";
 				  echo "<tr><th style = 'background-color:skyblue'>Employee Email</th><td>".$email."</td><tr>";
 				  echo "<tr><th style = 'background-color:skyblue'>Employee Mobile Number</th><td>".$mobile."</td><tr>";
 				 echo "</table></center>";
+				 echo "<br><br>";
 			}
 			mysqli_close($conn);
 		  }
 		?>
-	</div>
-    <center><span style="color:red"><?php echo $message;?></span></center>
-	 <div style="margin-left:-50px;background-color:black;height:113px;margin-top:0px;color:orange;text-align:center;">
+	
+    <center><span style="color:red"><?php echo $message;?></span></center></div></div>
+	 <div style="margin-left:-50px;background-color:black;height:113px;margin-top:400px;color:orange;text-align:center;">
 	     <br>
 		<p >Gateway Software Solutions, Coimbatore</p>
 	</div>

@@ -53,9 +53,9 @@
 	  <a href="statusPage.php"><button class="tablinks">Status</button></a>
 	  <a href="changePassword.php"><button class="tablinks">Change Password</button></a>
 	  <a href="Logout.php"><button class="tablinks">Log Out</button></a>
-	</div>
 	
-	<div class="requestContainer" style="background-color:#696969;height:410px;margin-top:-20px;">
+	
+	<div class="requestContainer" style="background-color:#696969;margin-top:-257px;height:410px;width:1075px;margin-left:190px;overflow-y: auto;">
 		<?php
 			$message="";
 			$servername="localhost";
@@ -87,7 +87,7 @@
 			}
 		?> 
 		<?php
-		   echo "<center><h2 style = 'margin-left:150px'>List of Components</h2></center>";
+		   echo "<center><h2 style = 'margin-left:0px'>List of Components</h2></center>";
 		   echo "<br>";
 		   echo "<form method='POST'>";
 		   echo "<center><select name='componentName'>"; // Open your drop down box 
@@ -97,7 +97,7 @@
 		   }
 			echo '</select></center>';
 			echo '<br>';
-			echo "<center><input type='submit' value='View' name='View'></center>";
+			echo "<center><input type='submit'  style='background-color:black' value='View' name='View'></center>";
 			echo "<br><br>";
 		?>
 		<?php
@@ -114,7 +114,10 @@
 						$noOfRows=mysqli_num_rows($result2);
 						if($noOfRows>0)
 						{
-						echo "<tr><th>Equipment Description</th><th>Equipment Model</th><th>Availability</th><th>Submit</th></tr>";
+						echo "<tr><th style='background-color:skyblue'>Equipment Description</th>
+						<th style='background-color:skyblue'>Equipment Model</th>
+						<th style='background-color:skyblue'>Availability</th>
+						<th style='background-color:skyblue'>Submit</th></tr>";
 						while ($row2 = mysqli_fetch_array($result2)) 
 					    {
 							echo "<tr>";
@@ -130,11 +133,12 @@
 							echo '</select></center>';
 							echo "</td>";
 							echo "<td>";
-							echo "<center><button name='Apply' value=".$row2[0]." style='width:80px'>Apply</button></center>";
+							echo "<center><button name='Apply' value=".$row2[0]." style='text-align:center;color:white;width:80px;background-color:skyblue;height:3px'>Apply</button></center>";
 							echo "</td></form>";
 							echo "</tr>";
 						}
 						echo "</table></center>";
+						
 						}
 						else
 						{
@@ -179,8 +183,8 @@
 				  if($i<$Quantity)
 				  {
 					$ComponentID=$rw2[0];
-					$sql3="INSERT INTO Status(EmpID,EmployeeName,EquipmentID,EquipmentDescription,EquipmentName,Date,Time,Status) VALUES ('".$RegNo."', '".$StudentName."', '".$ComponentID."', '".$ComponentDesc."', '".$ComponentName."', '".$Date."', '".$Time."', '".$Status."')";	
-					$sql4="INSERT INTO log(EmpID,EmployeetName,EquipmentID,EquipmentDescription,EquipmentName,Date,Time,Status) VALUES ('".$RegNo."', '".$StudentName."', '".$ComponentID."', '".$ComponentDesc."', '".$ComponentName."', '".$Date."', '".$Time."', '".$Status."')";	
+					$sql3="INSERT INTO status(EmpID,EmployeeName,EquipmentID,EquipmentDescription,EquipmentName,Date,Time,Status) VALUES ('".$RegNo."', '".$StudentName."', '".$ComponentID."', '".$ComponentDesc."', '".$ComponentName."', '".$Date."', '".$Time."', '".$Status."')";	
+					$sql4="INSERT INTO log(EmpID,EmployeeName,EquipmentID,EquipmentDescription,EquipmentName,Date,Time,Status) VALUES ('".$RegNo."', '".$StudentName."', '".$ComponentID."', '".$ComponentDesc."', '".$ComponentName."', '".$Date."', '".$Time."', '".$Status."')";	
 					if(mysqli_query($conn,$sql3) && mysqli_query($conn,$sql4))
 					{
 						$sql5="DELETE FROM availability WHERE Equipment_ID='{$ComponentID}'";
@@ -230,7 +234,10 @@
 						{
 						echo "<center><h3>Applied Equipment List</h3></center>";
 						echo "<center><table>";
-						echo "<tr><th>Equipment ID</th><th>Equipment Description</th><th>Equipment Name</th><th>Status</th></tr>";
+						echo "<tr><th style='background-color:skyblue'>Equipment ID</th>
+						<th style='background-color:skyblue'>Equipment Description</th>
+						<th style='background-color:skyblue'>Equipment Name</th>
+						<th style='background-color:skyblue'>Status</th></tr>";
 						while($row = mysqli_fetch_array($result)) 
 						{
 							echo "<tr>";
@@ -248,8 +255,8 @@
 			}
 		?>
 	<br>
-    <center><span style="color:red"><?php echo $message;?></span></center></div>
-	 <div style="margin-left:-50px;background-color:black;height:113px;margin-top:0px;color:orange;text-align:center;">
+    <center><span style="color:red"><?php echo $message;?></span></center></div></div>
+	 <div style="margin-left:-50px;background-color:black;height:113px;margin-top:400px;color:orange;text-align:center;">
 	     <br>
 		<p >Gateway Software Solutions, Coimbatore</p>
 	</div>

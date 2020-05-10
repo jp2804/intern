@@ -77,11 +77,11 @@
 	  <a href="addComponent.php"><button class="tablinks">Add Equipment</button></a>
 	  <a href="modifyComponent.php"><button class="tablinks">Modify Equipment</button></a>
 	  <a href="reportGenaration.php"><button class="tablinks">Report Generation</button></a>
-	  <a href="viewemployees.php"><button class="tablinks">Student Details</button></a>
+	  <a href="viewemployees.php"><button class="tablinks">Employee Details</button></a>
 	  <a href="Logout.php"><button class="tablinks">Log Out</button></a>
-	</div>
+	
 
-	<div class="requestContainer" style="background-color:#696969;height:410px;width:1200px;margin-top:00px;margin-left:190px;">
+	<div class="requestContainer" style="background-color:#696969;margin-top:-385px;height:410px;width:1075px;margin-left:190px;overflow-y: auto;">
 	<br>
 	   <?php
 			session_start();
@@ -136,19 +136,21 @@
 								if($status=="APPLIED")
 								{
 									echo "<form method='POST'>";
-									echo "<td><button name='Approve' value=".$row1[2]." style='width:80px'>Approve</button><button name='Reject' value=".$row1[2]." style='width:80px'>Reject</button></td>";
+									echo "<td><button name='Approve' style='color:white;background-color:skyblue;height:4px' value=".$row1[2]." style='width:80px'>Approve</button>";
+									echo "<br>";
+									echo "<button name='Reject' style='color:white;height:3px;background-color:skyblue' value=".$row1[2]." style='width:80px'>Reject</button></td>";
 									echo "</form>";
 								}
 								else if($status=="APPROVED")
 								{
 									echo "<form method='POST'>";
-									echo "<td><center><button name='Receive' value=".$row1[2]." style='width:80px'>Receive</button></center></td>";
+									echo "<td><center><button name='Receive' style='color:white;height:4px;background-color:skyblue' value=".$row1[2]." style='width:80px'>Receive</button></center></td>";
 									echo "</form>";
 								}
 								else if($status=="RECEIVED")
 								{
 									echo "<form method='POST'>";
-									echo "<td><center><button name='Return' value=".$row1[2]." style='width:80px'>Return</button></center></td>";
+									echo "<td><center><button name='Return' style='background-color:skyblue;height:4px;color:white;' value=".$row1[2]." style='width:80px'>Return</button></center></td>";
 									echo "</form>";
 								}
 								echo "</tr>";
@@ -196,7 +198,7 @@
 					  $sql4="UPDATE Status set Status='$status', Date='$Date', Time='$Time' WHERE Status='APPLIED' AND EquipmentID='{$componentID}'";
 					  if(mysqli_query($conn,$sql4))
 					  {
-						  $sql5="INSERT INTO log(EmpID,StudentName,EquipmentID,EquipmentDescription,EquipmentName,Date,Time,Status) VALUES ('".$RegNo."', '".$StudentName."', '".$componentID."', '".$ComponentDesc."', '".$ComponentName."', '".$Date."', '".$Time."', '".$status."')";	
+						  $sql5="INSERT INTO log(EmpID,EmployeeName,EquipmentID,EquipmentDescription,EquipmentName,Date,Time,Status) VALUES ('".$RegNo."', '".$StudentName."', '".$componentID."', '".$ComponentDesc."', '".$ComponentName."', '".$Date."', '".$Time."', '".$status."')";	
                           mysqli_query($conn, $sql5);
 						  header("Location:statusPage2.php");
 					  }
@@ -235,7 +237,7 @@
 							$sql3="UPDATE Status set Status='$status', Date='$Date', Time='$Time' WHERE Status='APPLIED' AND EquipmentID='{$componentID}'";
 							if(mysqli_query($conn,$sql3))
 							{	
-								$sql4="INSERT INTO log(EmpID,StudentName,EquipmentID,EquipmentDescription,EquipmentName,Date,Time,Status) VALUES ('".$RegNo."', '".$StudentName."', '".$componentID."', '".$ComponentDesc."', '".$ComponentName."', '".$Date."', '".$Time."', '".$status."')";	
+								$sql4="INSERT INTO log(EmpID,EmployeeName,EquipmentID,EquipmentDescription,EquipmentName,Date,Time,Status) VALUES ('".$RegNo."', '".$StudentName."', '".$componentID."', '".$ComponentDesc."', '".$ComponentName."', '".$Date."', '".$Time."', '".$status."')";	
 								mysqli_query($conn, $sql4);
 								header("Location:statusPage2.php");
 							}
@@ -276,7 +278,7 @@
 					  $sql2="UPDATE Status set Status='$status', Date='$Date', Time='$Time' WHERE Status='APPROVED' AND EquipmentID='{$componentID}'";
 					  if(mysqli_query($conn,$sql2))
 					  {	
-						$sql3="INSERT INTO log(EmpID,StudentName,EquipmentID,EquipmentDescription,EquipmentName,Date,Time,Status) VALUES ('".$RegNo."', '".$StudentName."', '".$componentID."', '".$ComponentDesc."', '".$ComponentName."', '".$Date."', '".$Time."', '".$status."')";	
+						$sql3="INSERT INTO log(EmpID,EmployeeName,EquipmentID,EquipmentDescription,EquipmentName,Date,Time,Status) VALUES ('".$RegNo."', '".$StudentName."', '".$componentID."', '".$ComponentDesc."', '".$ComponentName."', '".$Date."', '".$Time."', '".$status."')";	
 						mysqli_query($conn, $sql3);
 						header("Location:statusPage2.php");
 					  }
@@ -316,7 +318,7 @@
 							$sql3="UPDATE Status set Status='$status', Date='$Date', Time='$Time' WHERE Status='RECEIVED' AND EquipmentID='{$componentID}'";
 							if(mysqli_query($conn,$sql3))
 							{	
-								$sql4="INSERT INTO log(EmpID,StudentName,EquipmentID,EquipmentDescription,EquipmentName,Date,Time,Status) VALUES ('".$RegNo."', '".$StudentName."', '".$componentID."', '".$ComponentDesc."', '".$ComponentName."', '".$Date."', '".$Time."', '".$status."')";	
+								$sql4="INSERT INTO log(EmpID,EmployeeName,EquipmentID,EquipmentDescription,EquipmentName,Date,Time,Status) VALUES ('".$RegNo."', '".$StudentName."', '".$componentID."', '".$ComponentDesc."', '".$ComponentName."', '".$Date."', '".$Time."', '".$status."')";	
 								mysqli_query($conn, $sql4);
 								header("Location:statusPage2.php");
 							}
@@ -333,9 +335,10 @@
 				}
 			}
 		?>
-	</div>
-    <center><span style="color:red"><?php echo $message;?></span></center>
-	 <div style="margin-left:-50px;background-color:black;height:113px;margin-top:0px;color:orange;text-align:center;">
+		 <center><span style="color:red"><?php echo $message;?></span></center>
+	</div></div>
+   
+	 <div style="margin-left:-50px;background-color:black;height:113px;margin-top:400px;color:orange;text-align:center;">
 	     <br>
 		<p >Gateway Software Solutions, Coimbatore</p>
 	</div>

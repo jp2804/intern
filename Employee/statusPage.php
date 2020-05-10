@@ -52,9 +52,9 @@
 	  <a href="statusPage.php"><button class="tablinks" style="background-color:#ccc">Status</button></a>
 	  <a href="changePassword.php"><button class="tablinks">Change Password</button></a>
 	  <a href="Logout.php"><button class="tablinks">Log Out</button></a>
-	</div>
+	
 
-	<div class="requestContainer" style="background-color:#696969;height:410px;margin-top:-0px;">
+	<div class="requestContainer" style="background-color:#696969;margin-top:-257px;height:410px;width:1075px;margin-left:190px;overflow-y: auto;"">
 	<br>
 	   <?php
 			$servername="localhost";
@@ -104,7 +104,7 @@
 							if($row[5]=="APPLIED")
 							{
 							echo "<form method='POST'>";
-							echo "<td><button name='Cancel' value=".$row[0]." style='width:80px'>Cancel</button></td>";
+							echo "<td><button name='Cancel' value=".$row[0]." style='width:80px;background-color:skyblue;color:white;'>Cancel</button></td>";
 							echo "</form>";
 							}
 							else
@@ -152,7 +152,7 @@
 							{
 								$RegNo=$_SESSION["StudentID"];
 								
-								$sql5="SELECT Name from students WHERE RegNo='{$_SESSION["StudentID"]}'";
+								$sql5="SELECT Name from employees WHERE Emp_ID='{$_SESSION["StudentID"]}'";
 								$res5=mysqli_query($conn, $sql5);
 								$rw5=mysqli_fetch_array($res5);
 								$StudentName=$rw5[0];
@@ -167,7 +167,7 @@
 								$Date=date("Y-m-d");
 								$Time=date("h:i:sa");
 				
-								$sql7="INSERT INTO log(RegNo,StudentName,EquipmentID,EquipmentDescription,EquipmentName,Date,Time,Status) VALUES ('".$RegNo."', '".$StudentName."', '".$componentID."', '".$ComponentDesc."', '".$ComponentName."', '".$Date."', '".$Time."', '".$status."')";	
+								$sql7="INSERT INTO log(EmpID,EmployeeName,EquipmentID,EquipmentDescription,EquipmentName,Date,Time,Status) VALUES ('".$RegNo."', '".$StudentName."', '".$componentID."', '".$ComponentDesc."', '".$ComponentName."', '".$Date."', '".$Time."', '".$status."')";	
 								mysqli_query($conn, $sql7);
 								header("Location:statusPage.php");
 							}
@@ -184,9 +184,10 @@
 				}
 			}
 		?>
-	</div>
-    <center><span style="color:red"><?php echo $message;?></span></center>
-		 <div style="margin-left:-50px;background-color:black;height:113px;margin-top:0px;color:orange;text-align:center;">
+		 <center><span style="color:red"><?php echo $message;?></span></center>
+	</div></div>
+   
+		 <div style="margin-left:-50px;background-color:black;height:113px;margin-top:400px;color:orange;text-align:center;">
 	     <br>
 		<p >Gateway Software Solutions, Coimbatore</p>
 	</div>

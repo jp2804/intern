@@ -66,9 +66,9 @@
 	  <a href="reportGenaration.php"><button class="tablinks" style="background-color:#ccc">Report Generation</button></a>
 	  <a href="viewemployees.php"><button class="tablinks">Employee Details</button></a>
 	  <a href="Logout.php"><button class="tablinks">Log Out</button></a>
-	</div>
 	
-	<div class="requestContainer" style="background-color:#696969;margin-top:-20px;height:410px;">
+	
+	<div class="requestContainer" style="background-color:#696969;margin-top:-385px;height:410px;width:1075px;margin-left:190px;overflow-y: auto;">
 		<?php
 		    session_start();
 			$servername="localhost";
@@ -254,22 +254,28 @@
 				  {
 					$_SESSION["ReportGeneration"]=$sql;
 				   echo "<center><table>";
-				   echo "<tr><th>RegNo</th><th>StudentName</th><th>EquipmentID</th><th>Equipment Description</th><th>EquipmentName</th><th>Date</th><th>Time</th><th>Status</th></tr>";
+				   echo "<tr><th style = 'background-color:skyblue'>Emp_ID</th>
+				   <th style = 'background-color:skyblue'>Emp_Name</th>
+				   <th style = 'background-color:skyblue'>EquipmentID</th>
+				   <th style = 'background-color:skyblue'>Equipment Description</th>
+				   <th style = 'background-color:skyblue'>EquipmentName</th>
+				   <th style = 'background-color:skyblue'>Date</th>
+				   <th style = 'background-color:skyblue'>Time</th>
+				   <th style = 'background-color:skyblue'>Status</th></tr>";
 				   while($row=mysqli_fetch_array($result))
 			       {
 				    echo "<tr>";
-				    echo "<td>".$row[0]."</td>";
-				    echo "<td>".$row[1]."</td>";
-				    echo "<td>".$row[2]."</td>";
-				    echo "<td>".$row[3]."</td>";
-				    echo "<td>".$row[4]."</td>";
-				    echo "<td>".$row[5]."</td>";
-				    echo "<td>".$row[6]."</td>";
 				    echo "<td>".$row[7]."</td>";
+				    echo "<td>".$row[4]."</td>";
+				    echo "<td>".$row[1]."</td>";
+				    echo "<td>".$row[6]."</td>";
+				    echo "<td>".$row[2]."</td>";
+				    echo "<td>".$row[5]."</td>";
+				    echo "<td>".$row[0]."</td>";
+				    echo "<td>".$row[3]."</td>";
 				    echo "</tr>";
 			       }
 				   echo "</table></center>";
-				   echo "<a href='ReportGeneration/reportGenaration2.php'><button style='width:auto'>Download Excel</button></a>";
 				   echo "<br><br>";
 				  }
 				  else
@@ -280,8 +286,8 @@
 		}
 	   ?>
 		<center><span style="color:red;margin-top:-400px"><?php echo $message;?></span></center>
-	</div>
-   <div style="margin-left:-50px;background-color:black;height:113px;margin-top:0px;color:orange;text-align:center;">
+	</div></div>
+   <div style="margin-left:-50px;background-color:black;height:113px;margin-top:400px;color:orange;text-align:center;">
 	     <br>
 		<p >Gateway Software Solutions, Coimbatore</p>
 	</div>

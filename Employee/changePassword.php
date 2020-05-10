@@ -116,8 +116,8 @@
 	</div>
 
 	<div class="tab" style="height:410px">
-	  <a href="RequestPage.php"><button class="tablinks">Request Page</button></a>
-	  <a href="statusPage.php"><button class="tablinks">Status Page</button></a>
+	  <a href="RequestPage.php"><button class="tablinks">Request</button></a>
+	  <a href="statusPage.php"><button class="tablinks">Status</button></a>
 	  <a href="changePassword.php"><button class="tablinks" style="background-color:#ccc">Change Password</button></a>
 	  <a href="Logout.php"><button class="tablinks">Log Out</button></a>
 	</div>
