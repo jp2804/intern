@@ -1,0 +1,160 @@
+
+body {font-family: "Lato", sans-serif;}
+body, html { padding:0; margin:0;overflow-x:hidden;}
+
+.header {
+  padding: 1px;
+  background: #3c8dbc;
+  color: white;
+  text-align: left; 
+  width:100%;
+}
+.header1
+{
+  text-align: left; 
+  width:80%;
+}
+.header2
+{
+	float:right;
+	color: white;
+	margin-top:-38px;
+}
+
+/* Style the tab */
+a
+{
+	text-decoration:none;
+	color:black;
+}
+
+.requestContainer
+{
+	width:85%;
+	height:auto;
+	margin-left:15%;
+}
+
+.tab {
+	
+    float: left;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+    width: 15%;
+    height:100px;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+    display: block;
+    background-color: inherit;
+    color: black;
+    padding: 22px 16px;
+    width: 100%;
+    border: none;
+    outline: none;
+    text-align: left;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 17px;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+    background-color: #ddd;
+}
+
+/* Create an active/current "tab button" class */
+.tab button.active {
+    background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+    float: left;
+    padding: 0px 12px;
+    border: 0px solid #ccc;
+    width: 80%;
+    border-left: none;
+    height: 700px;
+}
+
+input[type=text],input[type=password],input[type=submit],select
+{
+  width: 25%;
+  padding: 12px;
+  border: none;
+  border-radius: 4px;
+  margin: 5px 0px 5px 0px;
+  opacity: 0.85;
+  font-size: 17px;
+  line-height: 20px;
+  text-decoration: none; 
+}
+input[type=text],input[type=password],input[type=submit],select
+{
+	border: 1px solid #ddd;
+}
+
+input:hover,
+.btn:hover {
+  opacity: 1;
+}
+
+input[type=submit] {
+  background-color: #3c8dbc;
+  border-color:#367fa9;
+  color: white;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #367fa9;
+  opacity: 2;
+}
+
+table
+{
+	border-collapse: collapse;
+	width:auto;
+}
+		
+table td, table th 
+{
+	border: 1px solid #ddd;
+	padding: 8px;
+}
+table th
+{
+	background-color:#4CAF50;
+	color:white;
+	padding-top: 12px;
+	padding-bottom: 12px;
+	text-align: center;
+}
+table tr:nth-child(even){background-color: #f2f2f2;}
+table tr:hover {background-color: #ddd;}
+button {
+	background-color: #3c8dbc;
+    border-color:#367fa9;
+	color: white;
+	cursor: pointer;
+	border: 1px solid #ddd;
+	width: 25%;
+	padding: 3px;
+	border-radius: 4px;
+	margin: 5px 0px 5px 0px;
+	opacity: 0.85;
+	font-size: 17px;
+	line-height: 20px;
+	text-decoration: none; 
+}
+
+button:hover {
+	background-color: #21B9F8;
+}
+
+.tab button
+{
+	margin: 0px 0px 0px 0px;
+}
